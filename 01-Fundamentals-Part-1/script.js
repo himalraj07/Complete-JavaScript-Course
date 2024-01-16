@@ -130,6 +130,7 @@ GOOD LUCK 😀
 // const heightMark = 1.69;
 // const massJohn = 92;
 // const heightJohn = 1.95;
+
 /*
 const massMark = 95;
 const heightMark = 1.88;
@@ -144,8 +145,9 @@ const BMIHigherBMI = BMIMark > BMIJohn;
 console.log(BMIMark, BMIJohn, BMIHigherBMI);
 */
 
+////////////////////////////////////
 // STRINGS AND TEMPLATE LITERALS
-
+/*
 const firstName = "Himal";
 const job = "student";
 const birthYear = 2004;
@@ -169,3 +171,23 @@ lines "
 console.log(`Srting
 multiple 
 lines`);
+*/
+
+// TAKING DECISIONS: IF / ELSE STATEMENTS
+const age = 15;
+
+if (age >= 18) {
+  console.log("Himal can start driving licence 🚗");
+} else {
+  const yearsLeft = 18 - age;
+  console.log(`Himal is too young. Wait another ${yearsLeft} years :)`);
+}
+
+const birthYear = 2012;
+let century;
+if (birthYear <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+console.log(century);
