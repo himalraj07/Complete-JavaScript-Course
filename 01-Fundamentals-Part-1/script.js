@@ -130,7 +130,7 @@ GOOD LUCK 😀
 // const heightMark = 1.69;
 // const massJohn = 92;
 // const heightJohn = 1.95;
-
+/*
 const massMark = 95;
 const heightMark = 1.88;
 const massJohn = 85;
@@ -142,3 +142,30 @@ const BMIJohn = massJohn / (heightJohn * heightJohn);
 const BMIHigherBMI = BMIMark > BMIJohn;
 
 console.log(BMIMark, BMIJohn, BMIHigherBMI);
+*/
+
+// STRINGS AND TEMPLATE LITERALS
+
+const firstName = "Himal";
+const job = "student";
+const birthYear = 2004;
+const year = 2037;
+
+const himal =
+  "I'm " + firstName + ", a " + (year - birthYear) + " years old " + job + "!";
+console.log(himal);
+
+const himalNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`;
+console.log(himalNew);
+
+console.log(`Just a regular string ...`);
+
+console.log(
+  "String with \n\
+multiple \n\
+lines "
+);
+
+console.log(`Srting
+multiple 
+lines`);
