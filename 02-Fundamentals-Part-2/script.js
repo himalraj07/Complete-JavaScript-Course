@@ -263,7 +263,7 @@ const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 
 console.log(bills, tips, totals);
-*/
+
 
 // INTRODUCTION TO OBJECTS
 
@@ -282,3 +282,89 @@ const himal = {
   job: "student",
   friends: ["Micheal", "Peter", "Steven"],
 };
+
+
+// DOT VS. BRACKET NOTATION
+
+const himal = {
+  firstName: "Himal",
+  lastName: "Bhusal",
+  age: 2037 - 1991,
+  job: "student",
+  friends: ["Micheal", "Peter", "Steven"],
+};
+console.log(himal);
+
+console.log(himal.lastName);
+console.log(himal["lastName"]);
+
+const nameKey = "Name";
+console.log(himal["first" + nameKey]);
+console.log(himal["last" + nameKey]);
+
+// console.log(himal.'last' + nameKey);
+
+const intrestedIn = prompt(
+  "What do you want to you know about Himal? Choose between firstname, lastname, age, job, and friends"
+);
+
+if (himal[intrestedIn]) {
+  console.log(himal[intrestedIn]);
+} else {
+  console.log(
+    "Wrong request! Choose between firstname, lastname, age, job, and friends"
+  );
+}
+
+himal.location = "Nepal";
+himal["github"] = "@himalraj07";
+console.log(himal);
+
+// Challenge
+// "Himal has 3 friends, and his best friend is called Michael"
+
+console.log(
+  `${himal.firstName} has ${himal.friends.length} friends, and his best friend is called ${himal.friends[0]}`
+);
+*/
+
+// OBJECT METHODS
+
+const himal = {
+  firstName: "Himal",
+  lastName: "Bhusal",
+  birthYear: 1991,
+  job: "student",
+  friends: ["Micheal", "Peter", "Steven"],
+  hasDriverLicense: true,
+
+  // calcAge: function (birthYear) {
+  //   return 2037 - birthYear;
+  // },
+
+  // calcAge: function () {
+  //   // console.log(this);
+  //   return 2037 - this.birthYear;
+  // },
+
+  calcAge: function () {
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()} - years old ${
+      himal.job
+    }, and he has ${this.hasDriverLicense ? "a" : "no"} driver's license.`;
+  },
+};
+
+console.log(himal.calcAge());
+
+console.log(himal.age);
+console.log(himal.age);
+console.log(himal.age);
+
+// Challenge
+// "Himal is a 46-year old student, and he has a driver's license"
+console.log(himal.getSummary());
