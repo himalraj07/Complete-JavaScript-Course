@@ -420,7 +420,7 @@ if (mark.bmi > john.bmi) {
     `${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`
   );
 }
-*/
+
 
 // ITERATION: THE FOR LOOP
 
@@ -438,4 +438,53 @@ if (mark.bmi > john.bmi) {
 // for loop keeps running while condition is TRUE
 for (let rep = 1; rep <= 10; rep++) {
   console.log(`Lifting weights repetition ${rep} 🏋️`);
+}
+
+
+// LOOPING ARRAYS. BREAKING AND CONTINUING
+
+const himal = [
+  "Himal",
+  "Bhusal",
+  2037 - 1991,
+  "student",
+  ["Micheal", "Peter", "Steven"],
+  true
+];
+
+// console.log(himal[0]);
+// console.log(himal[1]);
+// ...
+// console.log(himal[4]);
+// himal[5] does NOT exist
+
+for (let i = 0; i < himal.length; i++) {
+  console.log(himal[i]);
+}
+*/
+
+// LOOPING BACKWARDS AND LOOPS IN LOOPS
+
+const himal = [
+  "Himal",
+  "Bhusal",
+  2037 - 1991,
+  "student",
+  ["Michael", "Peter", "Steven"],
+  true,
+];
+
+// 0, 1, ..., 4
+// 4, 3, ..., 0
+
+for (let i = himal.length - 1; i >= 0; i--) {
+  console.log(i, himal[i]);
+}
+
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`-------- Starting exercise ${exercise}`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${exercise} Lifting weight repetition ${rep} 🏋️`);
+  }
 }
