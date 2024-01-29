@@ -84,6 +84,7 @@ Throughout my learning journey, I've worked on several projects to apply my know
 - [Project 1: To-Do List App](./projects/todo-list)
 - [Project 2: Weather App](./projects/weather-app)
 - [Project 3: E-commerce Website](./projects/e-commerce)
+- [Project 4: Guess My Number](./05-Guess-My-Number)
 
 Explore the projects in the `projects` directory for more details and code.
 
