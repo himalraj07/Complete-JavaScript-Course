@@ -43,6 +43,8 @@ console.log(me)
 // console.log(job);
 // console.log(year);
 
+// Hoisting and TDZ in Practice
+
 var me = 'Himal'
 let job = 'teacher'
 const year = 1991
