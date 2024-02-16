@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 /*
 function calcAge(birthYear) {
   const age = 2037 - birthYear
@@ -36,7 +36,7 @@ const firstName = 'Himal'
 calcAge(1991)
 // console.log(age);
 // printAge()
-*/
+
 
 // Variables
 console.log(me)
@@ -82,5 +82,39 @@ const z = 3
 console.log(x === window.x)
 console.log(y === window.y)
 console.log(z === window.z)
+*/
 
-// THE THIS KEYWORD THEORY
+// THE THIS KEYWORD IN PRACTICE
+
+// console.log(this);
+
+const calcAge = function (birthYear) {
+  console.log(2037 - birthYear);
+  // console.log(this);
+};
+calcAge(1991);
+
+const calcAgeAerrow = birthYear => {
+  console.log(2037 - birthYear);
+  // console.log(this);
+};
+calcAgeAerrow(1980);
+
+const himal = {
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+  },
+};
+himal.calcAge();
+
+const matilda = {
+  year: 2017,
+};
+
+matilda.calcAge = himal.calcAge;
+matilda.calcAge();
+
+const f = himal.calcAge;
+f();
