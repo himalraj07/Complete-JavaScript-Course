@@ -54,6 +54,18 @@ const restaurant = {
   },
 };
 
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish values are null and undefined. It does not include 0 or enpty string ('')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
+/*
+////////////////////////////////////////////////////
+// Short Circuting (&& and ||)
+
 console.log('--- OR ---');
 // Use ANY data type, return ANY data type, short-circuiting
 console.log(3 || 'Himal');
