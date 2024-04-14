@@ -54,37 +54,15 @@ const restaurant = {
   },
 };
 
-/*
-const rest1 = {
-  name: 'Capri',
-  // numGuests: 20,
-  numGuests: 0,
-};
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-const rest2 = {
-  name: 'La Pizza',
-  owner: 'Giovanni Rossi',
-};
+for (const item of menu) console.log(item);
 
-// OR assignment operator
-// rest1.numGuests = rest1.numGuests || 10;
-// rest2.numGuests = rest2.numGuests || 10;
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}. ${el}`);
+}
 
-// rest1.numGuests ||= 10;
-// rest2.numGuests ||= 10;
-
-// nullish assignment operator (null or undefined)
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10;
-
-// AND assignment operator
-// rest1.owner = rest1.owner && '<ANONYMOUS>';
-// rest2.owner = rest2.owner && '<ANONYMOUS>';
-rest1.owner &&= '<ANONYMOUS>';
-rest2.owner &&= '<ANONYMOUS>';
-
-console.log(rest1);
-console.log(rest2);
+console.log([...menu.entries()]);
 
 /*
 ///////////////////////////////////////
@@ -106,7 +84,7 @@ Suppose we get data from a web service about a certain game (below). In this cha
 TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
 
 GOOD LUCK 😀
-*/
+
 
 const game = {
   team1: 'Bayern Munich',
@@ -183,6 +161,38 @@ printGoals(...game.scored);
 // 7.
 team1 < team2 && console.log('Team 1 is more likely to win');
 team1 > team2 && console.log('Team 2 is more likely to win');
+
+/*
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Pizza',
+  owner: 'Giovanni Rossi',
+};
+
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// AND assignment operator
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
 
 /*
 ///////////////////////////////////////////////
