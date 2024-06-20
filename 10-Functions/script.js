@@ -64,6 +64,7 @@ checkIn(flight, himal);
 
 // FIRST -CLASS AND HIGHER-ORDER FUNCTIONS
 
+/*
 // FUNCTIONS ACCEPTING CALLBACK FUNCTIONS
 const oneWord = function (str) {
   return str.replace(/ /g, '').toLowerCase();
@@ -92,3 +93,21 @@ const high5 = function () {
 document.body.addEventListener('click', high5);
 
 ['Himal', 'Bikash', 'Sagar'].forEach(high5);
+*/
+
+// FUNCTIONS RETURNING FUNCTIONS
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Himal');
+greeterHey('Bikash');
+
+greet('Hello')('Himal');
+
+// Challenge
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+greetArr('Hi')('Himal');
