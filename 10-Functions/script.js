@@ -290,7 +290,7 @@ poll.displayReasults.call({ answers: [1, 5, 3, 9, 6, 1] });
 
 // [5, 2, 3]
 // [1, 5, 3, 9, 6, 1]
-*/
+
 
 // IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE)
 
@@ -315,3 +315,24 @@ runOnce();
 }
 // console.log(isPrivate);
 console.log(notPrivate);
+
+*/
+
+// CLOSURES
+
+const secureBooking = function () {
+  let passengerrCount = 0;
+
+  return function () {
+    passengerrCount++;
+    console.log(`${passengerrCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
