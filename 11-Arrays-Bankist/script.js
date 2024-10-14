@@ -74,3 +74,35 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// SLICE (it doesn't changes the original array)
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+console.log(arr.slice(-2));
+console.log(arr.slice(-1)); // -1 is always the last element of the array
+console.log(arr.slice(1, -2)); // -2 means except last two elements
+console.log(arr.slice()); // same copy as the original one
+console.log([...arr]); // it also gives same result
+
+// SPLICE (it changes the original array)
+// console.log(arr.splice(2));
+arr.splice(-1);
+console.log(arr);
+arr.splice(1, 2); // position no. 1 dekhi start vayera 2 ota elements delete gardinxa
+console.log(arr);
+
+// REVERSE (it also mutates the original array)
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse());
+console.log(arr2);
+
+// CONCAT (it doesn't mutate the original array)
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]);
+
+// JOIN
+console.log(letters.join(' - '));
