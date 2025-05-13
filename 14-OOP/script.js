@@ -144,7 +144,7 @@ class PersonCl {
 
   // Set a property that already exists
   set fullName(name) {
-    console.log(name);
+    // console.log(name);
     if (name.includes(' ')) this._fullName = name;
     else alert(`${name} is not a full name!`);
   }
@@ -178,7 +178,7 @@ jessica.greet();
 
 const walter = new PersonCl('Walter White', 1965);
 
-PersonCl.hey();
+// PersonCl.hey();
 
 /*
 // getters and setters
@@ -200,3 +200,27 @@ console.log(account.latest); // 300
 account.latest = 50;
 console.log(account.movements); // [200, 530, 120, 300, 50]
 */
+
+// Object.create
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+steven.name = 'Steven';
+steven.birthYear = 2002;
+console.log(steven);
+steven.calcAge();
+
+console.log(steven.__proto__ === PersonProto); // true
+
+const sarah = Object.create(PersonProto);
+sarah.init('Sarah', 1979);
+sarah.calcAge();
