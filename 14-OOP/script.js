@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 // Constructor functions and the new operator
 const Person = function (firstName, birthYear) {
   // Instance properties
@@ -120,7 +120,7 @@ bmw.accelerate();
 // ES6 Classes
 // class expression
 // const PersonCl = class {};
-
+/*
 // class declaration
 class PersonCl {
   constructor(fullName, birthYear) {
@@ -200,7 +200,7 @@ console.log(account.latest); // 300
 account.latest = 50;
 console.log(account.movements); // [200, 530, 120, 300, 50]
 */
-
+/*
 // Object.create
 const PersonProto = {
   calcAge() {
@@ -238,7 +238,7 @@ DATA CAR 1: 'Ford' going at 120 km/h
 
 GOOD LUCK 😀
 */
-
+/*
 class CarCl {
   constructor(make, speed) {
     this.make = make;
@@ -270,3 +270,42 @@ ford.accelerate();
 ford.brake();
 ford.speedUS = 50;
 console.log(ford); // 80
+*/
+
+///////////////////////////////////////
+// Inheritance between "classes": Constructor functions
+
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear); // call the parent constructor
+  this.course = course;
+};
+
+// Linking prototypes
+Student.prototype = Object.create(Person.prototype); // Inherit from Person
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const mike = new Student('Mike', 2020, 'Computer Science');
+mike.introduce();
+mike.calcAge();
+
+console.log(mike.__proto__); // Student.prototype
+console.log(mike.__proto__.__proto__); // Person.prototype
+
+console.log(mike instanceof Student); // true
+console.log(mike instanceof Person); // true
+console.log(mike instanceof Object); // true
+
+Student.prototype.constructor = Student; // Fixing the constructor property
+console.dir(Student.prototype.constructor); // Person
