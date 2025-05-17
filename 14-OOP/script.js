@@ -451,9 +451,9 @@ const jay = Object.create(StudentProto);
 jay.init('Jay', 2010, 'Computer Science');
 jay.introduce();
 jay.calcAge();
-*/
 
 // Another class example
+
 class Account {
   constructor(owner, currency, pin) {
     this.owner = owner;
@@ -499,3 +499,62 @@ console.log(acc1);
 
 console.log(acc1);
 console.log(acc1.pin); // undefined
+*/
+
+// Encapsulation: private class fields and methods
+// 1. Public fields (instances)
+// 2. Private fields (instances)
+// 3. Public methods
+// 4. Private methods (instances)
+// STATIC version of these 4
+
+class Account {
+  locale = navigator.language; // Public fields
+  bank = 'Bankist';
+  #movements = []; // Private fields
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+
+    // this.movements = [];
+    // this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  // Public interface (API)
+  getMovements() {
+    return this.#movements;
+  }
+
+  deposit(val) {
+    this.#movements.push(val);
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+  }
+
+  #approveLoan(val) {
+    // Fake always returns true
+    return true;
+  }
+
+  requestLoan(val) {
+    if (this.#approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved`);
+    }
+  }
+}
+
+const acc1 = new Account('Jonas', 'EUR', 1111);
+acc1.deposit(300);
+acc1.withdraw(100);
+console.log(acc1);
+// console.log(acc1.#movements);
+
+// Account.#test();
