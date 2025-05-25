@@ -250,7 +250,7 @@ TEST COORDINATES 2: 19.037, 72.873
 TEST COORDINATES 2: -33.933, 18.474
 
 GOOD LUCK 😀
-*/
+
 
 const whereAmI = function (lat, lng) {
   // Geocoding
@@ -283,3 +283,17 @@ whereAmI(19.037, 72.873)
 whereAmI(-33.933, 18.474)
 
 // Asynchronous behind the scenes: the event loop
+*/
+
+// The event loop in practice
+
+console.log('Test start')
+setTimeout(() => console.log('0 sec timer'), 0)
+Promise.resolve('Resolved promise 1').then(res => console.log(res))
+
+Promise.resolve('Resolved promise 2').then(res => {
+  for (let i = 0; i < 1000000000; i++) {} // Simulating a blocking task
+  console.log(res)
+})
+
+console.log('Test end')
