@@ -28,6 +28,15 @@ const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg)
   countriesContainer.style.opacity = 1
 }
+
+// Helper function to fetch JSON data with error handling
+const getJSON = function (url, errorMsg = 'Something went wrong') {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`)
+    return response.json()
+  })
+}
+
 /*
 
 ///////////////////////////////////////
@@ -453,7 +462,7 @@ createImage('img/img-1.jpg')
     currentImg.style.display = 'none'
   })
   .catch(err => console.error(err))
-*/
+
 
 // consuming Promises with async/await
 
@@ -514,3 +523,22 @@ console.log('1: Will get location')
   }
   console.log('3: Finished getting location')
 })()
+*/
+
+const get3Countries = async function (c1, c2, c3) {
+  try {
+    // const [data1] = await getJSON(`https://restcountries.com/v3.1/name/${c1}`)
+    // const [data2] = await getJSON(`https://restcountries.com/v3.1/name/${c2}`)
+    // const [data3] = await getJSON(`https://restcountries.com/v3.1/name/${c3}`)
+
+    const data = await Promise.all([
+      getJSON(`https://restcountries.com/v3.1/name/${c1}`),
+      getJSON(`https://restcountries.com/v3.1/name/${c2}`),
+      getJSON(`https://restcountries.com/v3.1/name/${c3}`),
+    ])
+    console.log(data.map(d => d[0].capital))
+  } catch (err) {
+    console.error(`${err}`)
+  }
+}
+get3Countries('portugal', 'canada', 'tanzania')
