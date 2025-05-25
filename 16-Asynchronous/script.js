@@ -36,7 +36,6 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
     return response.json()
   })
 }
-
 /*
 
 ///////////////////////////////////////
@@ -523,7 +522,7 @@ console.log('1: Will get location')
   }
   console.log('3: Finished getting location')
 })()
-*/
+
 
 const get3Countries = async function (c1, c2, c3) {
   try {
@@ -542,3 +541,47 @@ const get3Countries = async function (c1, c2, c3) {
   }
 }
 get3Countries('portugal', 'canada', 'tanzania')
+*/
+
+// Promise.race
+;(async function () {
+  const res = await Promise.race([
+    getJSON(`https://restcountries.com/v3.1/name/italy`),
+    getJSON(`https://restcountries.com/v3.1/name/egypt`),
+    getJSON(`https://restcountries.com/v3.1/name/mexico`),
+  ])
+  console.log(res[0])
+})()
+
+const timeout = function (sec) {
+  return new Promise(function (_, reject) {
+    setTimeout(() => {
+      reject(new Error('Request took too long!'))
+    }, sec * 1000)
+  })
+}
+
+Promise.race([
+  getJSON(`https://restcountries.com/v3.1/name/tanzania`),
+  timeout(5),
+])
+  .then(res => console.log(res[0]))
+  .catch(err => console.error(err))
+
+// Promise.allSettled
+Promise.all([
+  Promise.resolve('Success'),
+  Promise.reject('Error'),
+  Promise.resolve('Another success'),
+])
+  .then(res => console.log(res))
+  .catch(err => console.error(err))
+
+// Promise.any
+Promise.any([
+  Promise.resolve('Success'),
+  Promise.reject('Error'),
+  Promise.resolve('Another success'),
+])
+  .then(res => console.log(res))
+  .catch(err => console.error(err))
