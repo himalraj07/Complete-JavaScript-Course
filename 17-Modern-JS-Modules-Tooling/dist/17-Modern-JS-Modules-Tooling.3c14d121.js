@@ -794,7 +794,7 @@ class Person {
     }
 }
 const jonas = new Person('Himal');
-console.log('HImal' ?? null);
+console.log('Himal' ?? null);
 console.log((0, _shoppingCartJs.cart).find((el)=>el.quantity >= 2));
 Promise.resolve('TEST').then((x)=>console.log(x));
 
