@@ -1,0 +1,11 @@
+A brief introduction to the command line
+/*  These commands are for windows  */
+
+ls
+dir [file]
+cd [folder-name] -> to enter the specific file
+mkdir [folder-name] => to create a folder
+echo >[file-name] -> to create a file
+del [file-name] -> to delete a file
+mv .\[file-name] ../ -> to move a file to its parent filder
+rmdir [folder-name] => to delete a folder

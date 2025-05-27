@@ -76,7 +76,6 @@ ShoppingCart2.addToCart('apples', 4);
 ShoppingCart2.addToCart('pizza', 2);
 console.log(ShoppingCart2);
 console.log(ShoppingCart2.shippingCost); // undefined, not exposed
-*/
 
 // CommonJS Modules
 
@@ -90,3 +89,5 @@ exports.addToCart = function (product, quantity) {
 
 // Import
 const { addToCart } = require('./shoppingCart.js');
+*/
+
