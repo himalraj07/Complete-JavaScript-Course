@@ -7,5 +7,5 @@ cd [folder-name] -> to enter the specific file
 mkdir [folder-name] => to create a folder
 echo >[file-name] -> to create a file
 del [file-name] -> to delete a file
-mv .\[file-name] ../ -> to move a file to its parent filder
+mv .\[file-name] ../ -> to move a file to its parent folder
 rmdir [folder-name] => to delete a folder

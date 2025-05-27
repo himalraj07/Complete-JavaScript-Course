@@ -1,4 +1,3 @@
-/*
 // Importing module
 // import { addToCart, totalPrice as price, tq } from "./shoppingCart.js";
 // addToCart('bread', 5);
@@ -21,6 +20,8 @@ add('bread', 5);
 add('apples', 4);
 
 console.log(cart);
+
+/*
 
 // console.log('Start fetching');
 // const res = await fetch('https://jsonplaceholder.typicode.com/posts');
@@ -91,8 +92,12 @@ exports.addToCart = function (product, quantity) {
 const { addToCart } = require('./shoppingCart.js');
 */
 
-// Import cloneDeep using a relative path and use it to deep clone the cart
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+////////////////////////////////////////
+// Introduction to NPM
+
+// import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+
+import cloneDeep from 'lodash-es';
 
 const state = {
   cart: [
@@ -109,3 +114,7 @@ state.user.loggedIn = false;
 console.log(sateClone);
 
 console.log(stateDeepClone);
+
+if (module.hot) {
+  module.hot.accept();
+}
