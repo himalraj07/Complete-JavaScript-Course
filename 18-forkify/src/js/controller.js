@@ -19,8 +19,6 @@ const timeout = function (s) {
 
 ///////////////////////////////////////
 
-
-
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
@@ -40,6 +38,8 @@ const controlRecipes = async function () {
   }
 };
 
-['hashchange', 'load'].forEach(ev => window.addEventListener(ev, controlRecipes));
+['hashchange', 'load'].forEach(ev =>
+  window.addEventListener(ev, controlRecipes)
+);
 // window.addEventListener('hashchange', controlRecipes);
 // window.addEventListener('load', controlRecipes);
