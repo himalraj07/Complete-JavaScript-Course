@@ -1,4 +1,5 @@
 import { async } from 'regenerator-runtime/runtime';
+import { API_URL } from './config';
 import { TIMEOUT_SEC } from './config.js';
 
 const timeout = function (s) {
@@ -8,8 +9,6 @@ const timeout = function (s) {
     }, s * 1000);
   });
 };
-
-import { API_URL } from './config';
 
 export const getJSON = async function (url) {
   try {
@@ -24,4 +23,3 @@ export const getJSON = async function (url) {
     throw err;
   }
 };
- 
